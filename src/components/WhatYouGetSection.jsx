@@ -1,0 +1,69 @@
+import {
+  Clock,
+  Headphones,
+  Layout,
+  Mail,
+  PenLine,
+  Search,
+} from 'lucide-react'
+import { whatYouGet } from '../data/content'
+import Card3D from './ui/Card3D'
+import IconBox from './ui/IconBox'
+
+const WHAT_YOU_GET_BG = encodeURI('/bg-What You Get.png')
+
+const iconMap = {
+  layout: Layout,
+  search: Search,
+  pen: PenLine,
+  mail: Mail,
+  clock: Clock,
+  headphones: Headphones,
+}
+
+export default function WhatYouGetSection() {
+  return (
+    <section
+      id="what-you-get"
+      className="relative scroll-mt-4 overflow-hidden px-4 py-14 sm:py-16"
+    >
+      <img
+        src={WHAT_YOU_GET_BG}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/88 via-white/72 to-emerald-50/55" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-white/20" />
+
+      <div className="relative mx-auto max-w-lg sm:max-w-3xl lg:max-w-6xl">
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-emerald-600">
+          Included
+        </p>
+        <h2 className="mt-2 text-center font-heading text-2xl font-bold text-[#002147] sm:text-3xl">
+          What You Get
+        </h2>
+
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {whatYouGet.map((item) => {
+            const Icon = iconMap[item.icon]
+            return (
+              <Card3D
+                key={item.title}
+                className="group rounded-2xl border border-white/70 bg-white/90 p-6 backdrop-blur-sm"
+              >
+                <IconBox icon={Icon} size="sm" />
+                <h3 className="mt-4 font-heading text-base font-bold text-[#002147] transition-colors duration-300 group-hover:text-emerald-700">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {item.description}
+                </p>
+              </Card3D>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
