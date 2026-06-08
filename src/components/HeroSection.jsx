@@ -36,7 +36,7 @@ export default function HeroSection() {
 
       <div className="relative mx-auto max-w-lg sm:max-w-2xl lg:max-w-6xl lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
         <div className="text-center lg:text-left">
-          <h1 className="font-heading text-[2rem] font-bold leading-[1.15] tracking-tight text-[#002147] sm:text-[2.75rem] lg:text-5xl">
+          <h1 className="font-heading text-[1.75rem] font-bold leading-[1.15] tracking-tight text-[#002147] sm:text-[2.75rem] lg:text-5xl">
             <AnimatedHeadline />
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-slate-600 sm:text-base lg:mx-0">
