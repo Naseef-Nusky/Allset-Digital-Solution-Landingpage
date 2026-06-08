@@ -4,9 +4,10 @@ import Button from './ui/Button'
 import CheckTick from './ui/CheckTick'
 
 const HERO_LINE_1 = 'Websites for UK'
-const HERO_LINE_2 = 'Small Businesses From £200'
+const HERO_LINE_2 = 'Small Businesses'
+const HERO_LINE_3 = 'From £200'
 const LETTER_DELAY = 0.04
-const PRICE_START_LINE_2 = HERO_LINE_2.indexOf('£')
+const PRICE_START_LINE_3 = HERO_LINE_3.indexOf('£')
 
 function AnimatedLine({ text, startIndex, priceStart = -1 }) {
   return text.split('').map((char, index) => (
@@ -27,10 +28,13 @@ function AnimatedHeadline() {
         <AnimatedLine text={HERO_LINE_1} startIndex={0} />
       </span>
       <span className="block">
+        <AnimatedLine text={HERO_LINE_2} startIndex={HERO_LINE_1.length} />
+      </span>
+      <span className="block">
         <AnimatedLine
-          text={HERO_LINE_2}
-          startIndex={HERO_LINE_1.length}
-          priceStart={PRICE_START_LINE_2}
+          text={HERO_LINE_3}
+          startIndex={HERO_LINE_1.length + HERO_LINE_2.length}
+          priceStart={PRICE_START_LINE_3}
         />
       </span>
     </>
