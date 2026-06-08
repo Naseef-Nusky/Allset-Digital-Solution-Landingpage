@@ -3,20 +3,38 @@ import { heroFeatures, heroTrustBadges, PHONE_NUMBER } from '../data/content'
 import Button from './ui/Button'
 import CheckTick from './ui/CheckTick'
 
-const HERO_HEADLINE = 'Websites for UK Small Businesses From £200'
+const HERO_LINE_1 = 'Websites for UK Small'
+const HERO_LINE_2 = 'Businesses From £200'
 const LETTER_DELAY = 0.04
-const PRICE_START = HERO_HEADLINE.indexOf('£')
+const PRICE_START_LINE_2 = HERO_LINE_2.indexOf('£')
 
-function AnimatedHeadline() {
-  return HERO_HEADLINE.split('').map((char, index) => (
+function AnimatedLine({ text, startIndex, priceStart = -1 }) {
+  return text.split('').map((char, index) => (
     <span
-      key={index}
-      className={`hero-letter ${index >= PRICE_START ? 'text-emerald-600' : ''}`}
-      style={{ animationDelay: `${index * LETTER_DELAY}s` }}
+      key={startIndex + index}
+      className={`hero-letter ${index >= priceStart ? 'text-emerald-600' : ''}`}
+      style={{ animationDelay: `${(startIndex + index) * LETTER_DELAY}s` }}
     >
       {char === ' ' ? '\u00A0' : char}
     </span>
   ))
+}
+
+function AnimatedHeadline() {
+  return (
+    <>
+      <span className="block">
+        <AnimatedLine text={HERO_LINE_1} startIndex={0} />
+      </span>
+      <span className="block">
+        <AnimatedLine
+          text={HERO_LINE_2}
+          startIndex={HERO_LINE_1.length}
+          priceStart={PRICE_START_LINE_2}
+        />
+      </span>
+    </>
+  )
 }
 
 export default function HeroSection() {
