@@ -3,8 +3,8 @@ import { heroFeatures, heroTrustBadges, PHONE_NUMBER } from '../data/content'
 import Button from './ui/Button'
 import CheckTick from './ui/CheckTick'
 
-const HERO_LINE_1 = 'Websites for UK Small'
-const HERO_LINE_2 = 'Businesses From £200'
+const HERO_LINE_1 = 'Websites for UK'
+const HERO_LINE_2 = 'Small Businesses From £200'
 const LETTER_DELAY = 0.04
 const PRICE_START_LINE_2 = HERO_LINE_2.indexOf('£')
 
