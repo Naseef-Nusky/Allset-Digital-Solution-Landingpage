@@ -24,6 +24,17 @@ body {
   }
 }
 
+@keyframes hero-letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -35,30 +46,14 @@ body {
 }
 
 @layer components {
+  .hero-letter {
+    display: inline-block;
+    opacity: 0;
+    animation: hero-letter-in 0.5s ease forwards;
+  }
+
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-emerald-400 via-emerald-500 to-emerald-600 font-semibold text-white transition-all duration-200;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.35),
-      0 4px 0 #047857,
-      0 8px 20px rgba(5, 150, 105, 0.4);
-    transform: translateY(0);
-  }
-
-  .btn-primary:hover {
-    @apply from-emerald-500 via-emerald-500 to-emerald-700;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      0 5px 0 #047857,
-      0 12px 28px rgba(5, 150, 105, 0.45);
-    transform: translateY(-2px);
-  }
-
-  .btn-primary:active {
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.15),
-      0 1px 0 #047857,
-      0 4px 12px rgba(5, 150, 105, 0.35);
-    transform: translateY(3px);
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-emerald-500 via-emerald-500 to-teal-500 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:from-emerald-600 hover:via-emerald-500 hover:to-teal-600 hover:shadow-xl hover:shadow-emerald-500/35 active:translate-y-0 active:scale-[0.98];
   }
 
   .btn-primary::after {
@@ -80,28 +75,7 @@ body {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#002147] bg-gradient-to-b from-white to-slate-50 font-semibold text-[#002147] transition-all duration-200;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 4px 0 #001a33,
-      0 8px 16px rgba(0, 33, 71, 0.12);
-  }
-
-  .btn-secondary:hover {
-    @apply border-emerald-500 bg-gradient-to-b from-emerald-50 to-white text-emerald-700;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 5px 0 #047857,
-      0 12px 24px rgba(5, 150, 105, 0.2);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary:active {
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.08),
-      0 1px 0 #001a33,
-      0 4px 10px rgba(0, 33, 71, 0.1);
-    transform: translateY(3px);
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#002147] bg-white font-semibold text-[#002147] transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-700 hover:shadow-md active:translate-y-0 active:scale-[0.98];
   }
 
   .btn-secondary:hover .btn-icon,
@@ -144,20 +118,11 @@ body {
   }
 
   .icon-box {
-    @apply relative flex shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#002147] via-[#003d7a] to-emerald-500 text-white transition-all duration-300;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.25),
-      0 6px 0 #001a33,
-      0 10px 20px rgba(0, 33, 71, 0.25);
-    transform: translateZ(0);
+    @apply relative flex shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#002147] via-[#003366] to-emerald-500 text-white shadow-md transition-all duration-300;
   }
 
   .group:hover .icon-box {
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      0 8px 0 #047857,
-      0 16px 32px rgba(5, 150, 105, 0.35);
-    transform: translateY(-3px) translateZ(12px);
+    @apply scale-110 shadow-lg shadow-emerald-500/30;
   }
 
   .icon-box::before {
@@ -210,27 +175,23 @@ body {
   }
 
   .icon-check {
-    @apply flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 shadow-sm shadow-emerald-500/30 transition-transform duration-300;
+    @apply flex shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-sm shadow-emerald-500/20 ring-1 ring-emerald-400/30;
   }
 
-  .group:hover .icon-check {
-    @apply scale-110;
+  .icon-check-sm {
+    @apply h-5 w-5;
+  }
+
+  .icon-check-md {
+    @apply h-6 w-6;
   }
 
   .step-badge {
-    @apply relative flex items-center justify-center rounded-full bg-gradient-to-br from-[#002147] via-[#003d7a] to-emerald-500 font-heading font-bold text-white transition-all duration-300;
-    box-shadow:
-      inset 0 2px 0 rgba(255, 255, 255, 0.2),
-      0 6px 0 #001a33,
-      0 12px 24px rgba(0, 33, 71, 0.3);
+    @apply relative flex items-center justify-center rounded-full bg-gradient-to-br from-[#002147] to-emerald-500 font-heading font-bold text-white shadow-lg shadow-emerald-500/25 transition-all duration-300;
   }
 
   .group:hover .step-badge {
-    box-shadow:
-      inset 0 2px 0 rgba(255, 255, 255, 0.25),
-      0 8px 0 #047857,
-      0 16px 32px rgba(5, 150, 105, 0.35);
-    transform: translateY(-4px) scale(1.05);
+    @apply scale-110 shadow-xl shadow-emerald-500/35;
   }
 
   .card-3d {
@@ -299,27 +260,6 @@ body {
   }
 
   .nav-btn {
-    @apply flex items-center justify-center rounded-full border border-slate-200 bg-gradient-to-b from-white to-slate-50 text-[#002147] transition-all duration-200;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 3px 0 #e2e8f0,
-      0 6px 16px rgba(0, 33, 71, 0.1);
-  }
-
-  .nav-btn:hover {
-    @apply border-emerald-200 text-emerald-600;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 4px 0 #a7f3d0,
-      0 10px 24px rgba(5, 150, 105, 0.2);
-    transform: translateY(-2px);
-  }
-
-  .nav-btn:active {
-    transform: translateY(2px);
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.06),
-      0 1px 0 #e2e8f0,
-      0 4px 10px rgba(0, 33, 71, 0.08);
+    @apply flex items-center justify-center rounded-full border border-slate-200 bg-white text-[#002147] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:text-emerald-600 hover:shadow-lg active:scale-95;
   }
 }

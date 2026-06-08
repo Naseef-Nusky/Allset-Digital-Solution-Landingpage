@@ -181,36 +181,36 @@ export const faqs = [
   {
     question: 'How long does it take to build a website?',
     answer:
-      'Most websites are live within around 7 days. Simple brochure sites can be ready in as little as 5 days, while more complex projects may take up to 2 weeks. We always give you a clear timeline before we start.',
+      'Most websites are designed, built and launched in around 1 week. Landing pages are even quicker, typically just a couple of days. Timelines depend on how quickly you can share content and feedback. Remember, we can write your content for you.',
   },
   {
     question: 'Is SEO really included?',
     answer:
-      'Yes. Every website includes basic on-page SEO as standard — proper titles, meta descriptions, fast load speeds, mobile optimisation and structured content so Google can find and rank your site from day one.',
+      'Yes. Every website we build comes with on page SEO baked in. That means keyword research, optimised meta tags, fast load speeds, mobile first design, structured data and clean code. You will launch ready to rank, not playing catch up.',
   },
   {
     question: 'Do you build websites for tradesmen, labourers and beauty salons?',
     answer:
-      'Yes. We specialise in affordable websites for tradesmen, labourers, builders, plumbers, electricians, beauty salons, barbers and all kinds of small businesses across the UK.',
+      'Yes. We are the affordable web designer of choice for tradesmen, labourers, builders, plumbers, electricians, beauty salons, barbers, nail technicians and other small businesses across the UK. Every site is built to rank locally for searches like web designer near me, plumber near me or beauty salon near me.',
   },
   {
     question: 'Do I need to provide the content and images?',
     answer:
-      'Not necessarily. We write the copy for you as part of every package. If you have your own photos or logo, great — send them over. If not, we can use professional stock images and help you gather what you need.',
+      'Not at all. We write all the content for you as part of the package. We will source professional imagery too, or use your own photos if you prefer. You just sit back and approve.',
   },
   {
     question: 'Do you offer ongoing SEO and management?',
     answer:
-      'Yes. We offer local SEO, Google Ads, social media management and website maintenance as affordable add-ons. You can add these at any time — there is no long-term contract required.',
+      'Absolutely. We offer monthly SEO management, Google Ads management and social media management. Flexible plans you can start, scale or pause anytime. Zero long lock in contracts.',
   },
   {
     question: 'What happens after my site goes live?',
     answer:
-      'We hand over full ownership of your website. We can also set up your free business email, submit your site to Google and stay on hand for updates, changes or ongoing marketing whenever you need us.',
+      'We will hand everything over, train you on how to use it (if you would like to make edits) and stay on hand for support. You can also add an ongoing care plan for updates, hosting and SEO.',
   },
   {
     question: 'How do I get started?',
     answer:
-      'Fill in the form above or give us a call. We will reply within 24 hours with honest advice and a clear quote. No pressure, no hard sell — just a straightforward plan for getting your business online.',
+      'Book your FREE consultation using the form on this page or call 07867 205377. We will have a friendly chat about your business, recommend the right package and send a clear quote with zero pressure to commit.',
   },
 ]

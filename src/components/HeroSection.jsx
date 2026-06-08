@@ -1,6 +1,23 @@
-import { ArrowRight, Check, Phone } from 'lucide-react'
+import { ArrowRight, Phone } from 'lucide-react'
 import { heroFeatures, heroTrustBadges, PHONE_NUMBER } from '../data/content'
 import Button from './ui/Button'
+import CheckTick from './ui/CheckTick'
+
+const HERO_HEADLINE = 'Websites for UK Small Businesses From £200'
+const LETTER_DELAY = 0.04
+const PRICE_START = HERO_HEADLINE.indexOf('£')
+
+function AnimatedHeadline() {
+  return HERO_HEADLINE.split('').map((char, index) => (
+    <span
+      key={index}
+      className={`hero-letter ${index >= PRICE_START ? 'text-emerald-600' : ''}`}
+      style={{ animationDelay: `${index * LETTER_DELAY}s` }}
+    >
+      {char === ' ' ? '\u00A0' : char}
+    </span>
+  ))
+}
 
 export default function HeroSection() {
   const scrollToQuote = () => {
@@ -20,8 +37,7 @@ export default function HeroSection() {
       <div className="relative mx-auto max-w-lg sm:max-w-2xl lg:max-w-6xl lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
         <div className="text-center lg:text-left">
           <h1 className="font-heading text-[2rem] font-bold leading-[1.15] tracking-tight text-[#002147] sm:text-[2.75rem] lg:text-5xl">
-            Websites for UK Small Businesses From{' '}
-            <span className="text-emerald-600">£200</span>
+            <AnimatedHeadline />
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-slate-600 sm:text-base lg:mx-0">
             Built in around 7 days with SEO included, copy written for you and
@@ -42,11 +58,9 @@ export default function HeroSection() {
         <div className="mt-6 text-center lg:col-start-1 lg:row-start-2 lg:mt-0 lg:text-left">
           <ul className="mx-auto max-w-md space-y-3 text-left lg:mx-0">
             {heroFeatures.map((feature) => (
-              <li key={feature} className="group flex items-start gap-3">
-                <span className="icon-check mt-0.5 h-5 w-5">
-                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
-                </span>
-                <span className="text-[15px] leading-snug text-slate-700 transition-colors duration-300 group-hover:text-[#002147]">
+              <li key={feature} className="flex items-start gap-3">
+                <CheckTick size="sm" className="mt-0.5" />
+                <span className="text-[15px] leading-snug text-slate-700">
                   {feature}
                 </span>
               </li>

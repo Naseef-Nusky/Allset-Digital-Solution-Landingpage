@@ -1,6 +1,6 @@
-import { Check } from 'lucide-react'
 import { whyChoose, whyChooseSubtext } from '../data/content'
 import Card3D from './ui/Card3D'
+import CheckTick from './ui/CheckTick'
 
 export default function WhyChooseSection() {
   return (
@@ -23,10 +23,8 @@ export default function WhyChooseSection() {
               as="li"
               className="group flex items-center gap-3 rounded-xl border border-slate-100 bg-white px-4 py-3.5"
             >
-              <span className="icon-check">
-                <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
-              </span>
-              <span className="text-[15px] font-medium text-slate-700 transition-colors duration-300 group-hover:text-[#002147]">
+              <CheckTick />
+              <span className="text-[15px] font-medium text-slate-700">
                 {item}
               </span>
             </Card3D>

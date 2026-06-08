@@ -1,9 +1,17 @@
 import { MessageSquare, Phone } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { PHONE_NUMBER } from '../data/content'
 import Button from './ui/Button'
 
 export default function StickyBottomBar() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
   const scrollToQuote = () => {
+    if (location.pathname !== '/') {
+      navigate('/#quote')
+      return
+    }
     document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })
   }
 
