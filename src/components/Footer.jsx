@@ -30,14 +30,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-4 text-xs text-slate-400 sm:justify-between">
-          <p>
+        <div className="mt-6 flex flex-col items-center gap-4 text-xs text-slate-400 sm:flex-row sm:justify-between">
+          <p className="order-2 text-center sm:order-1 sm:text-left">
             © {new Date().getFullYear()} All Set Digital Solutions. All rights
             reserved.
           </p>
           <Link
             to="/privacy-policy"
-            className="transition hover:text-emerald-600"
+            className="order-1 transition hover:text-emerald-600 sm:order-2"
           >
             Privacy Policy
           </Link>

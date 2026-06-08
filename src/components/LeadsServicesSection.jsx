@@ -52,11 +52,11 @@ export default function LeadsServicesSection() {
                 </p>
                 <Button
                   type="button"
-                  variant="ghost"
                   size="sm"
                   icon={ArrowRight}
                   onClick={scrollToQuote}
-                  className="mt-5 justify-start px-0"
+                  block
+                  className="mt-5"
                 >
                   Get My Free Quote
                 </Button>

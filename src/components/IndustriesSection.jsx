@@ -2,6 +2,12 @@ import { industries } from '../data/content'
 import Card3D from './ui/Card3D'
 
 export default function IndustriesSection() {
+  const scrollToContact = () => {
+    document
+      .getElementById('consultation')
+      ?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section className="px-4 py-14 sm:py-16">
       <div className="mx-auto max-w-lg sm:max-w-3xl lg:max-w-6xl">
@@ -16,8 +22,12 @@ export default function IndustriesSection() {
           {industries.map((industry) => (
             <Card3D
               key={industry.name}
+              as="button"
+              type="button"
               tilt={false}
-              className="group overflow-hidden rounded-2xl border border-slate-100 bg-white"
+              onClick={scrollToContact}
+              aria-label={`Get in touch about websites for ${industry.name}`}
+              className="group w-full cursor-pointer overflow-hidden rounded-2xl border border-slate-100 bg-white text-left"
             >
               <div className="relative aspect-square overflow-hidden bg-slate-100">
                 <img

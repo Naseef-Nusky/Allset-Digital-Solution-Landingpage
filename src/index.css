@@ -24,6 +24,19 @@ body {
   }
 }
 
+@keyframes btn-shine-sweep {
+  0%,
+  12% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  38% {
+    transform: translateX(280%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(280%) skewX(-20deg);
+  }
+}
+
 @keyframes hero-letter-in {
   from {
     opacity: 0;
@@ -64,6 +77,20 @@ body {
   .btn-primary:hover::after {
     @apply opacity-100;
     animation: shimmer 0.75s ease-out;
+  }
+
+  .btn-shimmer-auto::before {
+    content: "";
+    @apply pointer-events-none absolute inset-y-0 left-0 z-[1] w-2/5 bg-gradient-to-r from-transparent via-white/45 to-transparent;
+    animation: btn-shine-sweep 2.4s ease-in-out infinite;
+  }
+
+  .btn-shimmer-auto::after {
+    @apply hidden;
+  }
+
+  .btn-shimmer-auto > * {
+    @apply relative z-[2];
   }
 
   .btn-primary:hover .btn-icon {

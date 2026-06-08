@@ -50,7 +50,7 @@ export default function WhatYouGetSection() {
             return (
               <Card3D
                 key={item.title}
-                className="group rounded-2xl border border-white/70 bg-white/90 p-6 backdrop-blur-sm"
+                className="group flex flex-col items-center rounded-2xl border border-white/70 bg-white/90 p-6 text-center backdrop-blur-sm"
               >
                 <IconBox icon={Icon} size="sm" />
                 <h3 className="mt-4 font-heading text-base font-bold text-[#002147] transition-colors duration-300 group-hover:text-emerald-700">

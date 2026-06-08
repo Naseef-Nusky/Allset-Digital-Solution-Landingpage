@@ -23,7 +23,7 @@ export const formPlaceholders = {
   email: 'hello@thompsonplumbing.co.uk',
   phone: '07867 205377',
   message:
-    'We are a plumbing business in Leeds looking for a professional website with services pages, testimonials and a contact form. SEO setup and a business email included would be ideal.',
+    'e.g. Local business needing a website with contact form and SEO.',
 }
 
 export const whatYouGet = [
