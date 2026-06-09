@@ -97,7 +97,7 @@ export default function HeroSection() {
               >
                 <CheckTick
                   size="sm"
-                  className="max-lg:h-8 max-lg:w-8 max-lg:[&>svg]:h-4 max-lg:[&>svg]:w-4"
+                  className="!rounded-full max-lg:h-8 max-lg:w-8 max-lg:[&>svg]:h-4 max-lg:[&>svg]:w-4"
                 />
                 <span className="text-left text-[15px] leading-snug text-slate-700 sm:text-base lg:text-[15px]">
                   {feature}

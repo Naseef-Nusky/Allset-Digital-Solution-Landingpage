@@ -3,31 +3,55 @@ import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
 import {
   EMAIL,
   formPlaceholders,
+  formSuccessMessage,
+  formSuccessTitle,
   PHONE_DISPLAY,
   PHONE_NUMBER,
 } from '../data/content'
+import useAutoRefreshAfterSubmit from '../hooks/useAutoRefreshAfterSubmit'
+import { validateContactForm } from '../utils/contactFormValidation'
 import Button from './ui/Button'
+import FormFieldError from './ui/FormFieldError'
+
+const emptyForm = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+}
 
 export default function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  })
+  const [form, setForm] = useState(emptyForm)
+  const [errors, setErrors] = useState({})
+
+  useAutoRefreshAfterSubmit(submitted)
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+    setErrors((prev) => ({ ...prev, [name]: '' }))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const validationErrors = validateContactForm(form)
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      return
+    }
+
+    setErrors({})
     setSubmitted(true)
   }
 
-  const inputClass =
-    'w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-[15px] outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10'
+  const inputClass = (field) =>
+    `w-full rounded-xl border bg-white px-4 py-3 text-[15px] outline-none transition focus:ring-4 ${
+      errors[field]
+        ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10'
+        : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-500/10'
+    }`
 
   const labelClass = 'mb-1.5 block text-sm font-medium text-[#002147]'
 
@@ -74,15 +98,15 @@ export default function ConsultationForm() {
         <div className="form-3d rounded-3xl bg-white p-6 sm:p-8">
           {submitted ? (
             <div className="py-8 text-center">
-              <p className="font-heading text-xl font-bold text-[#002147]">
-                Thank you!
+              <p className="font-heading text-xl font-bold text-[#002147] sm:text-2xl">
+                {formSuccessTitle}
               </p>
-              <p className="mt-2 text-[15px] text-slate-600">
-                We will reply within 24 hours with your free website plan.
+              <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-slate-600">
+                {formSuccessMessage}
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <div>
                 <label htmlFor="consultation-name" className={labelClass}>
                   Your name
@@ -91,11 +115,17 @@ export default function ConsultationForm() {
                   id="consultation-name"
                   name="name"
                   type="text"
-                  required
+                  aria-required="true"
+                  aria-invalid={Boolean(errors.name)}
+                  aria-describedby={errors.name ? 'consultation-name-error' : undefined}
                   placeholder={formPlaceholders.name}
                   value={form.name}
                   onChange={handleChange}
-                  className={inputClass}
+                  className={inputClass('name')}
+                />
+                <FormFieldError
+                  id="consultation-name-error"
+                  message={errors.name}
                 />
               </div>
               <div>
@@ -106,11 +136,17 @@ export default function ConsultationForm() {
                   id="consultation-email"
                   name="email"
                   type="email"
-                  required
+                  aria-required="true"
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? 'consultation-email-error' : undefined}
                   placeholder={formPlaceholders.email}
                   value={form.email}
                   onChange={handleChange}
-                  className={inputClass}
+                  className={inputClass('email')}
+                />
+                <FormFieldError
+                  id="consultation-email-error"
+                  message={errors.email}
                 />
               </div>
               <div>
@@ -121,10 +157,17 @@ export default function ConsultationForm() {
                   id="consultation-phone"
                   name="phone"
                   type="tel"
+                  aria-required="true"
+                  aria-invalid={Boolean(errors.phone)}
+                  aria-describedby={errors.phone ? 'consultation-phone-error' : undefined}
                   placeholder={formPlaceholders.phone}
                   value={form.phone}
                   onChange={handleChange}
-                  className={inputClass}
+                  className={inputClass('phone')}
+                />
+                <FormFieldError
+                  id="consultation-phone-error"
+                  message={errors.phone}
                 />
               </div>
               <div>
@@ -135,10 +178,19 @@ export default function ConsultationForm() {
                   id="consultation-message"
                   name="message"
                   rows={4}
+                  aria-required="true"
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={
+                    errors.message ? 'consultation-message-error' : undefined
+                  }
                   placeholder={formPlaceholders.message}
                   value={form.message}
                   onChange={handleChange}
-                  className={`${inputClass} resize-none`}
+                  className={`${inputClass('message')} resize-none`}
+                />
+                <FormFieldError
+                  id="consultation-message-error"
+                  message={errors.message}
                 />
               </div>
               <Button type="submit" block icon={ArrowRight}>

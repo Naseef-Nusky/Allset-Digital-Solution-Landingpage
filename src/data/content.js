@@ -21,10 +21,14 @@ export const heroTrustBadges = [
 export const formPlaceholders = {
   name: 'James Thompson',
   email: 'hello@thompsonplumbing.co.uk',
-  phone: '07867 205377',
+  phone: '07123 456789',
   message:
     'e.g. Local business needing a website with contact form and SEO.',
 }
+
+export const formSuccessTitle = 'Thank you for your submission!'
+export const formSuccessMessage =
+  'A member of our team will be in contact shortly to discuss your project and get you All Set!'
 
 export const whatYouGet = [
   {
