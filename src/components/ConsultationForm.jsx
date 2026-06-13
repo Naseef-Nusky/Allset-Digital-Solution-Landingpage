@@ -3,6 +3,7 @@ import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
 import {
   EMAIL,
   formPlaceholders,
+  formSubmitError,
   formSuccessMessage,
   formSuccessTitle,
   ADDRESS,
@@ -11,6 +12,7 @@ import {
 } from '../data/content'
 import useAutoRefreshAfterSubmit from '../hooks/useAutoRefreshAfterSubmit'
 import { validateContactForm } from '../utils/contactFormValidation'
+import { submitContactForm } from '../utils/submitContactForm'
 import Button from './ui/Button'
 import FormFieldError from './ui/FormFieldError'
 
@@ -25,6 +27,8 @@ const emptyForm = {
 
 export default function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [form, setForm] = useState(emptyForm)
   const [errors, setErrors] = useState({})
 
@@ -36,7 +40,7 @@ export default function ConsultationForm() {
     setErrors((prev) => ({ ...prev, [name]: '' }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const validationErrors = validateContactForm(form)
 
@@ -46,7 +50,24 @@ export default function ConsultationForm() {
     }
 
     setErrors({})
-    setSubmitted(true)
+    setSubmitError('')
+    setIsSubmitting(true)
+
+    try {
+      await submitContactForm({
+        ...form,
+        source: 'Landing Page - Consultation',
+      })
+      setSubmitted(true)
+    } catch (error) {
+      if (error.errors) {
+        setErrors(error.errors)
+      } else {
+        setSubmitError(error.message || formSubmitError)
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const inputClass = (field) =>
@@ -201,9 +222,14 @@ export default function ConsultationForm() {
                   message={errors.message}
                 />
               </div>
-              <Button type="submit" block icon={ArrowRight}>
-                Get My Free Quote
+              <Button type="submit" block icon={ArrowRight} disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Get My Free Quote'}
               </Button>
+              {submitError && (
+                <p className="caption text-center text-red-600" role="alert">
+                  {submitError}
+                </p>
+              )}
               <p className="caption text-center text-slate-500">
                 We will never share your details. Reply within 24 hours.
               </p>

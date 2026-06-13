@@ -31,6 +31,8 @@ export const formPlaceholders = {
 export const formSuccessTitle = 'Thank you for your submission!'
 export const formSuccessMessage =
   'A member of our team will be in contact shortly to discuss your project and get you All Set!'
+export const formSubmitError =
+  'Sorry, something went wrong. Please try again or call us directly.'
 
 export const whatYouGet = [
   {
