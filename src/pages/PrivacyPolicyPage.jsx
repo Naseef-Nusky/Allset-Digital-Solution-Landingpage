@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { EMAIL, PHONE_DISPLAY, PHONE_NUMBER } from '../data/content'
+import { EMAIL, ADDRESS, PHONE_DISPLAY, PHONE_NUMBER } from '../data/content'
 
 export default function PrivacyPolicyPage() {
   return (
@@ -46,6 +46,8 @@ export default function PrivacyPolicyPage() {
               >
                 {PHONE_DISPLAY}
               </a>
+              <br />
+              Address: {ADDRESS}
             </p>
           </section>
 

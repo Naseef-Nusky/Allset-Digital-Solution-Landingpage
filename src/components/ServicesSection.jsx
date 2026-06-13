@@ -49,7 +49,7 @@ function ServiceCard({ service }) {
         <h3 className="font-heading text-xl font-bold leading-snug text-[#002147] sm:text-[1.35rem]">
           {service.title}
         </h3>
-        <p className="mt-3 flex-1 text-[15px] leading-relaxed text-slate-600">
+        <p className="section-lead mt-3 flex-1">
           {service.description}
         </p>
 
@@ -76,15 +76,15 @@ export default function ServicesSection() {
 
       <div className="relative mx-auto max-w-lg sm:max-w-3xl lg:max-w-6xl">
         <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="section-label tracking-[0.2em] text-emerald-600">
             What we do
           </p>
-          <h2 className="mt-3 font-heading text-2xl font-bold leading-snug text-[#002147] sm:text-3xl">
+          <h2 className="section-heading mt-3 leading-snug text-[#002147]">
             Affordable web design UK and growth{' '}
             <span className="text-emerald-600">services</span> for small
             businesses
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600">
+          <p className="section-lead mx-auto mt-3 max-w-2xl">
             Cheap web design for small businesses, labourers and tradesmen,
             plus everything you need to grow online.
           </p>

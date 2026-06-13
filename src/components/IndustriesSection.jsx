@@ -11,10 +11,10 @@ export default function IndustriesSection() {
   return (
     <section className="px-4 py-14 sm:py-16">
       <div className="mx-auto max-w-lg sm:max-w-3xl lg:max-w-6xl">
-        <p className="text-center text-xs font-bold uppercase tracking-widest text-emerald-600">
+        <p className="section-label text-center text-emerald-600">
           Who we help
         </p>
-        <h2 className="mt-2 text-center font-heading text-2xl font-bold text-[#002147] sm:text-3xl">
+        <h2 className="section-heading mt-2 text-center text-[#002147]">
           Built for UK Small Businesses
         </h2>
 

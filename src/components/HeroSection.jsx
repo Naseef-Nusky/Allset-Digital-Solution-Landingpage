@@ -79,10 +79,10 @@ export default function HeroSection() {
 
       <div className="relative mx-auto max-w-lg text-center sm:max-w-2xl lg:max-w-3xl">
         <div>
-          <h1 className="font-heading text-[2.5rem] font-bold leading-[1.12] tracking-tight text-[#002147] sm:text-[2.75rem] lg:text-5xl">
+          <h1 className="hero-title">
             <AnimatedHeadline />
           </h1>
-          <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-slate-600 sm:text-base">
+          <p className="hero-subtext mt-5 sm:mt-6">
             Built in around 7 days with SEO included, copy written for you and
             zero hidden fees.
           </p>
@@ -99,7 +99,7 @@ export default function HeroSection() {
                   size="sm"
                   className="!rounded-full max-lg:h-8 max-lg:w-8 max-lg:[&>svg]:h-4 max-lg:[&>svg]:w-4"
                 />
-                <span className="text-left text-[15px] leading-snug text-slate-700 sm:text-base lg:text-[15px]">
+                <span className="text-left text-[15px] leading-snug font-medium text-slate-700 sm:text-base lg:text-[15px]">
                   {feature}
                 </span>
               </li>

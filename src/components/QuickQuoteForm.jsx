@@ -40,13 +40,13 @@ export default function QuickQuoteForm() {
   }
 
   const inputClass = (field) =>
-    `w-full rounded-xl border bg-slate-50 px-4 py-3 text-[15px] outline-none transition focus:bg-white focus:ring-4 ${
+    `form-input w-full rounded-xl border bg-slate-50 px-4 py-3 outline-none transition focus:bg-white focus:ring-4 ${
       errors[field]
         ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10'
         : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-500/10'
     }`
 
-  const labelClass = 'mb-1.5 block text-sm font-medium text-[#002147]'
+  const labelClass = 'form-label'
 
   return (
     <section id="quote" className="scroll-mt-4 bg-slate-50 px-4 py-14 sm:py-16">
@@ -54,13 +54,13 @@ export default function QuickQuoteForm() {
         <div className="form-3d rounded-3xl border border-slate-100 bg-white p-6 sm:p-8">
           {!submitted && (
             <>
-              <p className="text-center text-xs font-bold uppercase tracking-widest text-emerald-600">
+              <p className="section-label text-center text-emerald-600">
                 Free website plan
               </p>
-              <h2 className="mt-2 text-center font-heading text-2xl font-bold text-[#002147]">
+              <h2 className="section-heading mt-2 text-center text-[#002147]">
                 Get your free website plan
               </h2>
-              <p className="mt-3 text-center text-[15px] leading-relaxed text-slate-600">
+              <p className="section-lead mt-3 text-center">
                 Tell us what you need and we will reply within 24 hours with honest
                 advice and a clear plan.
               </p>
@@ -72,7 +72,7 @@ export default function QuickQuoteForm() {
               <p className="font-heading text-xl font-bold text-[#002147] sm:text-2xl">
                 {formSuccessTitle}
               </p>
-              <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-slate-600">
+              <p className="section-lead mx-auto mt-3 max-w-md">
                 {formSuccessMessage}
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function QuickQuoteForm() {
               <Button type="submit" block icon={ArrowRight}>
                 Get My Free Quote
               </Button>
-              <p className="text-center text-xs text-slate-500">
+              <p className="caption text-center text-slate-500">
                 We will never share your details. Reply within 24 hours.
               </p>
             </form>

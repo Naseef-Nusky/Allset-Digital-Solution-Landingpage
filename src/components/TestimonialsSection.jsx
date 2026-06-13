@@ -28,12 +28,12 @@ function TestimonialSlide({ item, className = '' }) {
       <div className="mt-2">
         <StarRating />
       </div>
-      <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-slate-700">
+      <blockquote className="body-md mt-4 flex-1 text-slate-700">
         &ldquo;{item.quote}&rdquo;
       </blockquote>
       <div className="mx-auto mt-5 w-full max-w-xs border-t border-slate-100 pt-4">
         <p className="text-sm font-semibold text-[#002147]">{item.author}</p>
-        <p className="text-xs text-slate-500">{item.business}</p>
+        <p className="caption text-slate-500">{item.business}</p>
       </div>
     </article>
   )
@@ -81,13 +81,13 @@ export default function TestimonialsSection() {
 
       <div className="relative mx-auto max-w-lg sm:max-w-2xl lg:max-w-6xl">
         <div className="flex justify-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-emerald-700">
+          <span className="section-label inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-emerald-700">
             <Sparkles className="h-3 w-3" />
             Loved by UK businesses
           </span>
         </div>
 
-        <h2 className="mt-5 text-center font-heading text-2xl font-bold leading-snug text-[#002147] sm:text-3xl">
+        <h2 className="section-heading mt-5 text-center leading-snug text-[#002147]">
           Real results for real{' '}
           <span className="bg-gradient-to-r from-[#002147] to-emerald-500 bg-clip-text text-transparent">
             small businesses
@@ -96,7 +96,7 @@ export default function TestimonialsSection() {
 
         <div className="mt-4">
           <StarRating />
-          <p className="mt-2 text-center text-sm text-slate-500">
+          <p className="caption mt-2 text-center text-slate-500">
             5.0 average from happy customers across the UK
           </p>
         </div>

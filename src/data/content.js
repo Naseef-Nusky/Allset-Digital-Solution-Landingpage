@@ -1,6 +1,8 @@
 export const PHONE_NUMBER = '+447867205377'
-export const PHONE_DISPLAY = '07867 205377'
+export const PHONE_DISPLAY = '+44 7867 205377'
 export const EMAIL = 'contact@allsetdigitalsolutions.com'
+export const ADDRESS =
+  'The Townhouse, 114 – 116 Fore Street, Hertford, SG14 1AJ'
 
 export const heroFeatures = [
   'Professional websites from £200',

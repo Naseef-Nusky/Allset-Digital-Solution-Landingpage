@@ -3,6 +3,7 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-hero: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -63,6 +64,54 @@ body {
     display: inline-block;
     opacity: 0;
     animation: hero-letter-in 0.5s ease forwards;
+  }
+
+  .hero-title {
+    @apply font-hero text-balance text-center text-4xl font-extrabold leading-tight tracking-tight text-[#002147] sm:text-5xl md:text-6xl lg:text-7xl;
+  }
+
+  .hero-subtext {
+    @apply mx-auto max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg lg:text-xl;
+  }
+
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-widest;
+  }
+
+  .section-heading {
+    @apply font-heading text-2xl font-bold sm:text-3xl;
+  }
+
+  .section-lead {
+    @apply text-[15px] leading-relaxed text-slate-600;
+  }
+
+  .card-heading-lg {
+    @apply font-heading text-lg font-bold;
+  }
+
+  .card-heading-md {
+    @apply font-heading text-base font-bold;
+  }
+
+  .card-body {
+    @apply text-sm leading-relaxed text-slate-600;
+  }
+
+  .body-md {
+    @apply text-[15px] leading-relaxed;
+  }
+
+  .caption {
+    @apply text-xs;
+  }
+
+  .form-label {
+    @apply mb-1.5 block text-sm font-medium text-[#002147];
+  }
+
+  .form-input {
+    @apply text-[15px];
   }
 
   .btn-primary {

@@ -5,6 +5,7 @@ import {
   formPlaceholders,
   formSuccessMessage,
   formSuccessTitle,
+  ADDRESS,
   PHONE_DISPLAY,
   PHONE_NUMBER,
 } from '../data/content'
@@ -12,6 +13,8 @@ import useAutoRefreshAfterSubmit from '../hooks/useAutoRefreshAfterSubmit'
 import { validateContactForm } from '../utils/contactFormValidation'
 import Button from './ui/Button'
 import FormFieldError from './ui/FormFieldError'
+
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`
 
 const emptyForm = {
   name: '',
@@ -47,13 +50,13 @@ export default function ConsultationForm() {
   }
 
   const inputClass = (field) =>
-    `w-full rounded-xl border bg-white px-4 py-3 text-[15px] outline-none transition focus:ring-4 ${
+    `form-input w-full rounded-xl border bg-white px-4 py-3 outline-none transition focus:ring-4 ${
       errors[field]
         ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10'
         : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-500/10'
     }`
 
-  const labelClass = 'mb-1.5 block text-sm font-medium text-[#002147]'
+  const labelClass = 'form-label'
 
   return (
     <section
@@ -62,13 +65,13 @@ export default function ConsultationForm() {
     >
       <div className="mx-auto grid max-w-lg items-start gap-10 sm:max-w-3xl lg:max-w-6xl lg:grid-cols-2 lg:gap-12">
         <div className="text-center text-white lg:text-left">
-          <p className="text-xs font-bold uppercase tracking-widest text-emerald-300">
+          <p className="section-label text-emerald-300">
             Free website plan
           </p>
-          <h2 className="mt-2 font-heading text-2xl font-bold sm:text-3xl lg:text-4xl">
+          <h2 className="section-heading mt-2">
             Let us get your business all set.
           </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-emerald-50/90">
+          <p className="body-md mt-4 text-emerald-50/90">
             Tell us a bit about what you need. We will reply within 24 hours
             with honest advice and a clear plan, with zero pressure to commit.
           </p>
@@ -76,22 +79,27 @@ export default function ConsultationForm() {
           <div className="mx-auto mt-8 max-w-sm space-y-4 lg:mx-0">
             <a
               href={`tel:${PHONE_NUMBER}`}
-              className="group flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[15px] font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-white/10 lg:justify-start"
+              className="body-md group flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-white/10 lg:justify-start"
             >
               <Phone className="h-4 w-4 shrink-0 text-emerald-300 transition-transform duration-300 group-hover:scale-110" />
               {PHONE_DISPLAY}
             </a>
             <a
               href={`mailto:${EMAIL}`}
-              className="group flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[15px] font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-white/10 lg:justify-start"
+              className="body-md group flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-white/10 lg:justify-start"
             >
               <Mail className="h-4 w-4 shrink-0 text-emerald-300 transition-transform duration-300 group-hover:scale-110" />
               {EMAIL}
             </a>
-            <p className="group flex items-center justify-center gap-2 text-sm text-emerald-100/80 lg:justify-start">
-              <MapPin className="h-4 w-4 shrink-0 text-emerald-300 transition-transform duration-300 group-hover:scale-110" />
-              Serving small businesses across the UK
-            </p>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="body-md group flex items-start justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-white/10 lg:justify-start"
+            >
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300 transition-transform duration-300 group-hover:scale-110" />
+              {ADDRESS}
+            </a>
           </div>
         </div>
 
@@ -101,7 +109,7 @@ export default function ConsultationForm() {
               <p className="font-heading text-xl font-bold text-[#002147] sm:text-2xl">
                 {formSuccessTitle}
               </p>
-              <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-slate-600">
+              <p className="section-lead mx-auto mt-3 max-w-md">
                 {formSuccessMessage}
               </p>
             </div>
@@ -196,7 +204,7 @@ export default function ConsultationForm() {
               <Button type="submit" block icon={ArrowRight}>
                 Get My Free Quote
               </Button>
-              <p className="text-center text-xs text-slate-500">
+              <p className="caption text-center text-slate-500">
                 We will never share your details. Reply within 24 hours.
               </p>
             </form>

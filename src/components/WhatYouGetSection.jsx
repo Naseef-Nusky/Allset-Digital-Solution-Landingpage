@@ -37,10 +37,10 @@ export default function WhatYouGetSection() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-white/20" />
 
       <div className="relative mx-auto max-w-lg sm:max-w-3xl lg:max-w-6xl">
-        <p className="text-center text-xs font-bold uppercase tracking-widest text-emerald-600">
+        <p className="section-label text-center text-emerald-600">
           Included
         </p>
-        <h2 className="mt-2 text-center font-heading text-2xl font-bold text-[#002147] sm:text-3xl">
+        <h2 className="section-heading mt-2 text-center text-[#002147]">
           What You Get
         </h2>
 
@@ -53,10 +53,10 @@ export default function WhatYouGetSection() {
                 className="group flex flex-col items-center rounded-2xl border border-white/70 bg-white/90 p-6 text-center backdrop-blur-sm"
               >
                 <IconBox icon={Icon} size="sm" />
-                <h3 className="mt-4 font-heading text-base font-bold text-[#002147] transition-colors duration-300 group-hover:text-emerald-700">
+                <h3 className="card-heading-md mt-4 text-[#002147] transition-colors duration-300 group-hover:text-emerald-700">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="card-body mt-2">
                   {item.description}
                 </p>
               </Card3D>
