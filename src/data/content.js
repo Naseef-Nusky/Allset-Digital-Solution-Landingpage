@@ -1,5 +1,5 @@
-export const PHONE_NUMBER = '+447867205377'
-export const PHONE_DISPLAY = '+44 7867 205377'
+export const PHONE_NUMBER = '+447549355877'
+export const PHONE_DISPLAY = '+44 7549 355877'
 export const EMAIL = 'contact@allsetdigitalsolutions.com'
 export const ADDRESS =
   'The Townhouse, 114 – 116 Fore Street, Hertford, SG14 1AJ'
@@ -219,6 +219,6 @@ export const faqs = [
   {
     question: 'How do I get started?',
     answer:
-      'Book your FREE consultation using the form on this page or call 07867 205377. We will have a friendly chat about your business, recommend the right package and send a clear quote with zero pressure to commit.',
+      'Book your FREE consultation using the form on this page or call 07549 355877. We will have a friendly chat about your business, recommend the right package and send a clear quote with zero pressure to commit.',
   },
 ]
